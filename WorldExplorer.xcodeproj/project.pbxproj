@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		720E0F4620809D8B003DC1BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E0F4520809D8B003DC1BD /* AppDelegate.swift */; };
 		720E0F4820809D8B003DC1BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E0F4720809D8B003DC1BD /* ViewController.swift */; };
-		720E0F4B20809D8B003DC1BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 720E0F4920809D8B003DC1BD /* Main.storyboard */; };
 		720E0F4D20809D8B003DC1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 720E0F4C20809D8B003DC1BD /* Assets.xcassets */; };
 		720E0F5020809D8B003DC1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 720E0F4E20809D8B003DC1BD /* LaunchScreen.storyboard */; };
 		720E0F582080A34E003DC1BD /* SavedCharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E0F572080A34E003DC1BD /* SavedCharacterModel.swift */; };
@@ -17,13 +16,15 @@
 		720E0F5C2080AA8F003DC1BD /* CreateCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E0F5B2080AA8F003DC1BD /* CreateCharacterViewController.swift */; };
 		720E0F5F2080AED9003DC1BD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720E0F5E2080AED9003DC1BD /* MapKit.framework */; };
 		720E0F612080AFD2003DC1BD /* RealMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E0F602080AFD2003DC1BD /* RealMapViewController.swift */; };
+		721FD7F32084CE12001A78A5 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721FD7F22084CE12001A78A5 /* PopUpViewController.swift */; };
+		721FD7F92084D19D001A78A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 721FD7F82084D19D001A78A5 /* Main.storyboard */; };
+		72C378592086340500944090 /* MonsterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C378582086340500944090 /* MonsterHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		720E0F4220809D8B003DC1BD /* WorldExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		720E0F4520809D8B003DC1BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		720E0F4720809D8B003DC1BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		720E0F4A20809D8B003DC1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		720E0F4C20809D8B003DC1BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		720E0F4F20809D8B003DC1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		720E0F5120809D8B003DC1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +33,9 @@
 		720E0F5B2080AA8F003DC1BD /* CreateCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewController.swift; sourceTree = "<group>"; };
 		720E0F5E2080AED9003DC1BD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		720E0F602080AFD2003DC1BD /* RealMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMapViewController.swift; sourceTree = "<group>"; };
+		721FD7F22084CE12001A78A5 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		721FD7F82084D19D001A78A5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		72C378582086340500944090 /* MonsterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +72,7 @@
 			children = (
 				720E0F4520809D8B003DC1BD /* AppDelegate.swift */,
 				720E0F4720809D8B003DC1BD /* ViewController.swift */,
-				720E0F4920809D8B003DC1BD /* Main.storyboard */,
+				721FD7F82084D19D001A78A5 /* Main.storyboard */,
 				720E0F4C20809D8B003DC1BD /* Assets.xcassets */,
 				720E0F4E20809D8B003DC1BD /* LaunchScreen.storyboard */,
 				720E0F5120809D8B003DC1BD /* Info.plist */,
@@ -76,6 +80,8 @@
 				720E0F592080A37B003DC1BD /* CharacterHandler.swift */,
 				720E0F5B2080AA8F003DC1BD /* CreateCharacterViewController.swift */,
 				720E0F602080AFD2003DC1BD /* RealMapViewController.swift */,
+				721FD7F22084CE12001A78A5 /* PopUpViewController.swift */,
+				72C378582086340500944090 /* MonsterHandler.swift */,
 			);
 			path = WorldExplorer;
 			sourceTree = "<group>";
@@ -152,9 +158,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721FD7F92084D19D001A78A5 /* Main.storyboard in Resources */,
 				720E0F5020809D8B003DC1BD /* LaunchScreen.storyboard in Resources */,
 				720E0F4D20809D8B003DC1BD /* Assets.xcassets in Resources */,
-				720E0F4B20809D8B003DC1BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,8 +173,10 @@
 			files = (
 				720E0F5A2080A37B003DC1BD /* CharacterHandler.swift in Sources */,
 				720E0F5C2080AA8F003DC1BD /* CreateCharacterViewController.swift in Sources */,
+				721FD7F32084CE12001A78A5 /* PopUpViewController.swift in Sources */,
 				720E0F4820809D8B003DC1BD /* ViewController.swift in Sources */,
 				720E0F612080AFD2003DC1BD /* RealMapViewController.swift in Sources */,
+				72C378592086340500944090 /* MonsterHandler.swift in Sources */,
 				720E0F4620809D8B003DC1BD /* AppDelegate.swift in Sources */,
 				720E0F582080A34E003DC1BD /* SavedCharacterModel.swift in Sources */,
 			);
@@ -177,14 +185,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		720E0F4920809D8B003DC1BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				720E0F4A20809D8B003DC1BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		720E0F4E20809D8B003DC1BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
