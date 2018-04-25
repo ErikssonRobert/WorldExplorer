@@ -19,11 +19,15 @@ class CreateCharacterViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(_ sender: Any) {
-        guard let name = self.textFieldName.text else {
+        guard let name = self.textFieldName.text,
+                name != "" else {
             print("Invalid name!")
             return
         }
-        let char = CharacterHandler(name: name)
+        // Noob EQ hårdkodat under Beta-stadiet
+        let weapon = EquipmentModel(name: "Stick", damage: 5, armor: 0)
+        let armor = EquipmentModel(name: "Paper bag", damage: 0, armor: 2)
+        let char = CharacterHandler(name: name, weapon: weapon, armor: armor)
         let save = SavedCharacterModel()
         save.saveCharacter(char: char)
     }

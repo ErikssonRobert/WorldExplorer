@@ -18,7 +18,10 @@
 		720E0F612080AFD2003DC1BD /* RealMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E0F602080AFD2003DC1BD /* RealMapViewController.swift */; };
 		721FD7F32084CE12001A78A5 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721FD7F22084CE12001A78A5 /* PopUpViewController.swift */; };
 		721FD7F92084D19D001A78A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 721FD7F82084D19D001A78A5 /* Main.storyboard */; };
+		72A8FF88208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FF87208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift */; };
+		72B92FE6208B6BCE00D06EBB /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B92FE5208B6BCE00D06EBB /* CustomAnnotation.swift */; };
 		72C378592086340500944090 /* MonsterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C378582086340500944090 /* MonsterHandler.swift */; };
+		72E4871C20907AA50091E38F /* EquipmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E4871B20907AA50091E38F /* EquipmentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +38,10 @@
 		720E0F602080AFD2003DC1BD /* RealMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMapViewController.swift; sourceTree = "<group>"; };
 		721FD7F22084CE12001A78A5 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		721FD7F82084D19D001A78A5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		72A8FF87208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleMonsterPopUpViewController.swift; sourceTree = "<group>"; };
+		72B92FE5208B6BCE00D06EBB /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		72C378582086340500944090 /* MonsterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHandler.swift; sourceTree = "<group>"; };
+		72E4871B20907AA50091E38F /* EquipmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,18 +76,17 @@
 		720E0F4420809D8B003DC1BD /* WorldExplorer */ = {
 			isa = PBXGroup;
 			children = (
+				7228DCFF2090743800E14AA0 /* model */,
 				720E0F4520809D8B003DC1BD /* AppDelegate.swift */,
 				720E0F4720809D8B003DC1BD /* ViewController.swift */,
 				721FD7F82084D19D001A78A5 /* Main.storyboard */,
 				720E0F4C20809D8B003DC1BD /* Assets.xcassets */,
 				720E0F4E20809D8B003DC1BD /* LaunchScreen.storyboard */,
 				720E0F5120809D8B003DC1BD /* Info.plist */,
-				720E0F572080A34E003DC1BD /* SavedCharacterModel.swift */,
-				720E0F592080A37B003DC1BD /* CharacterHandler.swift */,
 				720E0F5B2080AA8F003DC1BD /* CreateCharacterViewController.swift */,
 				720E0F602080AFD2003DC1BD /* RealMapViewController.swift */,
 				721FD7F22084CE12001A78A5 /* PopUpViewController.swift */,
-				72C378582086340500944090 /* MonsterHandler.swift */,
+				72A8FF87208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift */,
 			);
 			path = WorldExplorer;
 			sourceTree = "<group>";
@@ -92,6 +97,18 @@
 				720E0F5E2080AED9003DC1BD /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7228DCFF2090743800E14AA0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				720E0F592080A37B003DC1BD /* CharacterHandler.swift */,
+				720E0F572080A34E003DC1BD /* SavedCharacterModel.swift */,
+				72B92FE5208B6BCE00D06EBB /* CustomAnnotation.swift */,
+				72C378582086340500944090 /* MonsterHandler.swift */,
+				72E4871B20907AA50091E38F /* EquipmentModel.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,8 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A8FF88208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift in Sources */,
 				720E0F5A2080A37B003DC1BD /* CharacterHandler.swift in Sources */,
 				720E0F5C2080AA8F003DC1BD /* CreateCharacterViewController.swift in Sources */,
+				72E4871C20907AA50091E38F /* EquipmentModel.swift in Sources */,
+				72B92FE6208B6BCE00D06EBB /* CustomAnnotation.swift in Sources */,
 				721FD7F32084CE12001A78A5 /* PopUpViewController.swift in Sources */,
 				720E0F4820809D8B003DC1BD /* ViewController.swift in Sources */,
 				720E0F612080AFD2003DC1BD /* RealMapViewController.swift in Sources */,
@@ -308,7 +328,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TH9JJXLYT;
 				INFOPLIST_FILE = WorldExplorer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RE.WorldExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -322,7 +344,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TH9JJXLYT;
 				INFOPLIST_FILE = WorldExplorer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RE.WorldExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
