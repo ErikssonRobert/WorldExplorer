@@ -11,7 +11,8 @@ import UIKit
 class MonsterHandler {
     
     var name : String
-
+    let level : Int
+    
     var currentHp : Int
     let maxHp : Int
     var strength : Int
@@ -19,6 +20,7 @@ class MonsterHandler {
 
     init(name: String, level: Int) {
         self.name = name
+        self.level = level
         self.currentHp = Int(level * 15)
         self.maxHp = self.currentHp
         self.strength = Int(level * 4)
