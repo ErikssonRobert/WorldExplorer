@@ -59,6 +59,7 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         mapView.isScrollEnabled = false
     }
     
+    // Updating position
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("\(locations[0].coordinate)\(mapView.userLocation.coordinate)")
         
@@ -69,6 +70,7 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         checkPlayerMonsterDistance()
     }
     
+    // Checking if player is close enough.
     func checkPlayerMonsterDistance() {
         let userLocation = CLLocation(latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude)
         for annotation in mapView.annotations {
@@ -76,8 +78,9 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 let monsterLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
                 let distance = userLocation.distance(from: monsterLocation)
                 print(distance)
-                if distance < 100 {
+                if distance < 50 {
                     self.mapView.view(for: annotation)?.isHidden = false
+                    self.mapView.view(for: annotation)?.isEnabled = true
                 }
             }
         }
@@ -94,6 +97,7 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             let icon = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             icon.image = UIImage(named: "monstericon")
             icon.isHidden = true
+            icon.isEnabled = false
             return icon
         }
     }
