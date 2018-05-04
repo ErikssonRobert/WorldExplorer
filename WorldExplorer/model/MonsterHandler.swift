@@ -21,10 +21,10 @@ class MonsterHandler {
     init(name: String, level: Int) {
         self.name = name
         self.level = level
-        self.currentHp = Int(level * 15)
+        self.currentHp = Int(level * 12)
         self.maxHp = self.currentHp
         self.strength = Int(level * 4)
-        self.defence = Int(level * 3)
+        self.defence = Int(level * 2)
     }
     
     func dealDamage() -> Int {
@@ -32,7 +32,12 @@ class MonsterHandler {
     }
     
     func takeDamage(dmg: Int) {
-        self.currentHp -= (dmg - self.defence)
+        let rawDmg = dmg - self.defence
+        if rawDmg <= 0 {
+            self.currentHp -= 1
+        } else {
+            self.currentHp -= rawDmg
+        }
         if self.currentHp <= 0 {
             self.currentHp = 0
         }

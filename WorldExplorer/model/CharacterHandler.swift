@@ -25,13 +25,8 @@ class CharacterHandler: Codable {
     var vitality : Int
     var toughness : Int
     var agility : Int
-    var luck : Int
     
-    // Equipment stats
-    var dmg : Int
-    var armor : Int
-    
-    init(name: String, weapon: EquipmentModel, armor: EquipmentModel) {
+    init(name: String) {
         self.name = name
         self.level = 1
         self.currentExp = 0
@@ -40,16 +35,13 @@ class CharacterHandler: Codable {
         self.maxHp = 100
         self.currentHp = 100
         self.strength = 5
-        self.vitality = 5
-        self.toughness = 5
-        self.agility = 5
-        self.luck = 1
-        self.dmg = weapon.damage
-        self.armor = armor.armor
+        self.vitality = 3
+        self.toughness = 3
+        self.agility = 3
     }
     
     func dealDamage() -> Int {
-        let rawDmg = (self.strength + self.dmg)
+        let rawDmg = (self.strength * 2)
         if isCriticalHit() {
             return Int(rawDmg * 2)
         } else {
@@ -58,7 +50,12 @@ class CharacterHandler: Codable {
     }
     
     func takeDamage(dmg: Int) {
-        self.currentHp -= (dmg - self.armor)
+        let rawDmg = (dmg - self.toughness)
+        if rawDmg <= 0 {
+            self.currentHp -= 1
+        } else {
+            self.currentHp -= rawDmg
+        }
         if self.currentHp <= 0 {
             self.currentHp = 0
         }

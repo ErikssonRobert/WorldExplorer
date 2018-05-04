@@ -18,7 +18,7 @@ class BattleMonsterPopUpViewController: UIViewController {
     @IBOutlet weak var buttonAttack: UIButton!
     @IBOutlet weak var buttonFlee: UIButton!
     
-    var player : CharacterHandler!
+    var character : CharacterHandler!
     var monster : MonsterHandler!
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class BattleMonsterPopUpViewController: UIViewController {
     func setupBattlePopUpView() {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         buttonDone.isHidden = true
-        labelPlayerName.text = player.name
+        labelPlayerName.text = character.name
         labelMonsterName.text = monster.name
         updatePlayerAndMonsterHp()
     }
@@ -42,7 +42,7 @@ class BattleMonsterPopUpViewController: UIViewController {
     }
     
     func updatePlayerAndMonsterHp() {
-        labelPlayerHp.text = "Hp: \(player.currentHp)/\(player.maxHp)"
+        labelPlayerHp.text = "Hp: \(character.currentHp)/\(character.maxHp)"
         labelMonsterHp.text = "Hp: \(monster.currentHp)/\(monster.maxHp)"
     }
     
@@ -50,14 +50,14 @@ class BattleMonsterPopUpViewController: UIViewController {
         playerAttacks()
         if self.monster.isAlive() {
             monsterAttacks()
-            if !self.player.isAlive() {
+            if !self.character.isAlive() {
                 self.textFieldBattleText.text = "You died!\nTry again next time."
                 self.buttonDone.isHidden = false
             }
         } else {
             self.textFieldBattleText.text = "You killed the \(self.monster.name)!\n"
-            self.player.gainExperience(exp: giveExperience(monsterLevel: self.monster.level))
-            self.textFieldBattleText.text.append("You gained \(giveExperience(monsterLevel: self.monster.level))")
+            self.character.gainExperience(exp: giveExperience(monsterLevel: self.monster.level))
+            self.textFieldBattleText.text.append("You gained \(giveExperience(monsterLevel: self.monster.level)) experiencepoints!\n")
             self.buttonDone.isHidden = false
             turnOffBattleButtons()
         }
@@ -82,15 +82,19 @@ class BattleMonsterPopUpViewController: UIViewController {
     }
     
     func playerAttacks() {
-        let playerDmg = player.dealDamage()
-        self.textFieldBattleText.text = "You attack the \(self.monster.name) dealing \(playerDmg - self.monster.defence) damage!\n"
+        let playerDmg = character.dealDamage()
+        if playerDmg - self.monster.defence <= 0 {
+            self.textFieldBattleText.text = "You attack the \(self.monster.name) dealing 1 damage!\n"
+        } else {
+            self.textFieldBattleText.text = "You attack the \(self.monster.name) dealing \(playerDmg - self.monster.defence) damage!\n"
+        }
         self.monster.takeDamage(dmg: playerDmg)
     }
     
     func monsterAttacks() {
         let monsterDmg = monster.dealDamage()
-        self.textFieldBattleText.text.append("The \(self.monster.name) attacked you dealing \(monsterDmg - self.player.armor) damage!")
-        self.player.takeDamage(dmg: monsterDmg)
+        self.textFieldBattleText.text.append("The \(self.monster.name) attacked you dealing \(monsterDmg - self.character.toughness) damage!")
+        self.character.takeDamage(dmg: monsterDmg)
     }
     
     func turnOffBattleButtons() {
@@ -101,18 +105,10 @@ class BattleMonsterPopUpViewController: UIViewController {
     }
     
     @IBAction func buttonDonePressed(_ sender: Any) {
+        let save = SavedCharacterModel()
+        save.saveCharacter(char: self.character)
         self.view.removeFromSuperview()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

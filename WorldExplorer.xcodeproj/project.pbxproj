@@ -18,6 +18,7 @@
 		720E0F612080AFD2003DC1BD /* RealMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720E0F602080AFD2003DC1BD /* RealMapViewController.swift */; };
 		721FD7F32084CE12001A78A5 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721FD7F22084CE12001A78A5 /* PopUpViewController.swift */; };
 		721FD7F92084D19D001A78A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 721FD7F82084D19D001A78A5 /* Main.storyboard */; };
+		72A07E0A209774250047A04A /* LevelUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A07E09209774250047A04A /* LevelUpViewController.swift */; };
 		72A8FF88208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8FF87208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift */; };
 		72B92FE6208B6BCE00D06EBB /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B92FE5208B6BCE00D06EBB /* CustomAnnotation.swift */; };
 		72C378592086340500944090 /* MonsterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C378582086340500944090 /* MonsterHandler.swift */; };
@@ -38,6 +39,7 @@
 		720E0F602080AFD2003DC1BD /* RealMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMapViewController.swift; sourceTree = "<group>"; };
 		721FD7F22084CE12001A78A5 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		721FD7F82084D19D001A78A5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		72A07E09209774250047A04A /* LevelUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpViewController.swift; sourceTree = "<group>"; };
 		72A8FF87208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleMonsterPopUpViewController.swift; sourceTree = "<group>"; };
 		72B92FE5208B6BCE00D06EBB /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		72C378582086340500944090 /* MonsterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHandler.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				720E0F5120809D8B003DC1BD /* Info.plist */,
 				720E0F5B2080AA8F003DC1BD /* CreateCharacterViewController.swift */,
 				720E0F602080AFD2003DC1BD /* RealMapViewController.swift */,
+				72A07E09209774250047A04A /* LevelUpViewController.swift */,
 				721FD7F22084CE12001A78A5 /* PopUpViewController.swift */,
 				72A8FF87208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift */,
 			);
@@ -190,6 +193,7 @@
 			files = (
 				72A8FF88208E1D9400EE2F53 /* BattleMonsterPopUpViewController.swift in Sources */,
 				720E0F5A2080A37B003DC1BD /* CharacterHandler.swift in Sources */,
+				72A07E0A209774250047A04A /* LevelUpViewController.swift in Sources */,
 				720E0F5C2080AA8F003DC1BD /* CreateCharacterViewController.swift in Sources */,
 				72E4871C20907AA50091E38F /* EquipmentModel.swift in Sources */,
 				72B92FE6208B6BCE00D06EBB /* CustomAnnotation.swift in Sources */,

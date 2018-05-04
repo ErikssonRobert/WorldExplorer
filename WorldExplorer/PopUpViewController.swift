@@ -29,10 +29,10 @@ class PopUpViewController: UIViewController {
         \(character.name)     level: \(character.level)
         Health: \(character.currentHp)/\(character.maxHp)
         Exp: \(character.currentExp)/\(character.expToLevel)
-        Damage: \(character.strength + character.dmg) Armor: \(character.armor)
-        Strength: \(character.strength) Vitality: \(character.vitality)
+        Strength: \(character.strength)
+        Vitality: \(character.vitality)
         Toughness: \(character.toughness)
-        Agility: \(character.agility) Luck: \(character.luck)
+        Agility: \(character.agility)
         """
     }
 
