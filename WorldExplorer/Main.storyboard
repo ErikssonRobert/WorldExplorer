@@ -49,11 +49,20 @@
                                     <segue destination="2ui-Is-IA3" kind="show" id="2ZC-D1-F5s"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dlogo" translatesAutoresizingMaskIntoConstraints="NO" id="T86-M6-q93">
+                                <rect key="frame" x="0.0" y="94" width="375" height="151"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="151" id="rmT-PY-sQ6"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.32586730961878374" green="0.70946318013853882" blue="0.81982674870466321" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="T86-M6-q93" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="0OV-EK-25d"/>
                             <constraint firstItem="wMs-hB-FNk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="31h-sv-pBe"/>
                             <constraint firstItem="QGv-Cm-25f" firstAttribute="top" secondItem="wMs-hB-FNk" secondAttribute="bottom" constant="8" symbolic="YES" id="9er-2K-mzR"/>
+                            <constraint firstItem="T86-M6-q93" firstAttribute="centerX" secondItem="wMs-hB-FNk" secondAttribute="centerX" id="cTh-wO-p1h"/>
+                            <constraint firstItem="T86-M6-q93" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="gBy-HM-knp"/>
                             <constraint firstItem="wMs-hB-FNk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="523" id="sT6-tl-WSQ"/>
                             <constraint firstItem="wMs-hB-FNk" firstAttribute="centerX" secondItem="QGv-Cm-25f" secondAttribute="centerX" id="zEG-wD-1tN"/>
                         </constraints>
@@ -143,9 +152,29 @@
                                     <action selector="levelUpButtonPressed:" destination="2ui-Is-IA3" eventType="touchUpInside" id="X0f-qm-Ciq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sH-aJ-8sU">
+                                <rect key="frame" x="185" y="36" width="174" height="30"/>
+                                <color key="backgroundColor" red="0.32586730959999999" green="0.70946318009999998" blue="0.81982674870000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XtG-gq-H7P"/>
+                                    <constraint firstAttribute="width" constant="174" id="tBY-Gr-Rzb"/>
+                                </constraints>
+                                <state key="normal" title="Show monsters(Debug)">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="debugShowMonsters:" destination="2ui-Is-IA3" eventType="touchUpInside" id="gkG-Qc-tkI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32586730959999999" green="0.70946318009999998" blue="0.81982674870000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2sH-aJ-8sU" firstAttribute="top" secondItem="7v7-p9-AZJ" secondAttribute="top" constant="16" id="CHZ-0u-MvI"/>
                             <constraint firstItem="iun-LM-Nf3" firstAttribute="leading" secondItem="srT-um-Xta" secondAttribute="leadingMargin" constant="-16" id="CJz-YL-ofh"/>
                             <constraint firstItem="iun-LM-Nf3" firstAttribute="top" secondItem="7v7-p9-AZJ" secondAttribute="top" id="CZm-ec-jwx"/>
                             <constraint firstItem="p25-gi-tb6" firstAttribute="bottom" secondItem="etb-aV-gvb" secondAttribute="bottom" id="I4C-JX-hpq"/>
@@ -154,6 +183,7 @@
                             <constraint firstItem="iun-LM-Nf3" firstAttribute="trailing" secondItem="srT-um-Xta" secondAttribute="trailingMargin" constant="16" id="U0p-Gu-H89"/>
                             <constraint firstItem="etb-aV-gvb" firstAttribute="leading" secondItem="p25-gi-tb6" secondAttribute="trailing" constant="82" id="asl-Bt-xBw"/>
                             <constraint firstItem="7v7-p9-AZJ" firstAttribute="bottom" secondItem="iun-LM-Nf3" secondAttribute="bottom" id="cwL-tY-zzO"/>
+                            <constraint firstItem="7v7-p9-AZJ" firstAttribute="trailing" secondItem="2sH-aJ-8sU" secondAttribute="trailing" constant="16" id="gVz-k1-7Qn"/>
                             <constraint firstItem="aGc-mH-9M3" firstAttribute="leading" secondItem="7v7-p9-AZJ" secondAttribute="leading" constant="16" id="oSu-de-ltv"/>
                             <constraint firstItem="gfA-ND-Qnj" firstAttribute="baseline" secondItem="p25-gi-tb6" secondAttribute="baseline" id="p0k-Cr-PT6"/>
                             <constraint firstItem="etb-aV-gvb" firstAttribute="centerX" secondItem="srT-um-Xta" secondAttribute="centerX" id="s85-mt-OSX"/>
@@ -165,6 +195,7 @@
                     <connections>
                         <outlet property="backButton" destination="aGc-mH-9M3" id="8jw-5R-M2Q"/>
                         <outlet property="characterButton" destination="etb-aV-gvb" id="TDN-8S-Avy"/>
+                        <outlet property="debugButton" destination="2sH-aJ-8sU" id="Yad-fo-hH8"/>
                         <outlet property="enterWorldButton" destination="gfA-ND-Qnj" id="dbh-kT-qRA"/>
                         <outlet property="levelUpButton" destination="p25-gi-tb6" id="fnw-ny-BnR"/>
                         <outlet property="mapView" destination="iun-LM-Nf3" id="YuX-kG-iTy"/>
@@ -689,6 +720,7 @@
     </scenes>
     <resources>
         <image name="backbutton" width="30" height="30"/>
+        <image name="dlogo" width="314" height="92"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XUD-Ib-JAG"/>

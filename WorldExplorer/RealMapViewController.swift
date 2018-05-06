@@ -17,6 +17,9 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     @IBOutlet weak var characterButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var debugButton: UIButton!
+    var isDebugOn : Bool = false
+    
     var locationManager : CLLocationManager!
     var character : CharacterHandler!
     
@@ -36,6 +39,7 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         loadCharacter()
         //createHiddenMap()
         setupButtons()
+        print("NU POPPADE KARTAN UPP!")
     }
         
     func saveCharacter() {
@@ -76,6 +80,13 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         self.enterWorldButton.layer.shadowOpacity = 1.0
         self.enterWorldButton.layer.shadowRadius = 0.0
         self.enterWorldButton.layer.masksToBounds = false
+        
+        // setup shadow for debugButton
+        self.debugButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4).cgColor
+        self.debugButton.layer.shadowOffset = CGSize(width: 2.0, height: 5.0)
+        self.debugButton.layer.shadowOpacity = 1.0
+        self.debugButton.layer.shadowRadius = 0.0
+        self.debugButton.layer.masksToBounds = false
     }
     
     func setupLocationManager() {
@@ -105,12 +116,12 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("\(locations[0].coordinate)\(mapView.userLocation.coordinate)")
         
-        let spanX = 0.004
-        let spanY = 0.004
+        let spanX = 0.006
+        let spanY = 0.006
         let newRegion = MKCoordinateRegionMake(mapView.userLocation.coordinate, MKCoordinateSpanMake(spanX, spanY))
         mapView.setRegion(newRegion, animated: true)
         checkPlayerMonsterDistance()
-        //enableEnterButton()
+        enableEnterButton()
         if self.entered {
             checkIfMonstersAreAlive()
         }
@@ -122,11 +133,11 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         }
     }
     
-//    func enableEnterButton() {
-//        if self.deadMonsters == 3 {
-//            self.enterWorldButton.isHidden = false
-//        }
-//    }
+    func enableEnterButton() {
+        if self.mapView.annotations.count == 1 {
+            self.enterWorldButton.isHidden = false
+        }
+    }
     
     // Checking if player is close enough.
     func checkPlayerMonsterDistance() {
@@ -136,7 +147,7 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 let monsterLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
                 let distance = userLocation.distance(from: monsterLocation)
                 print(distance)
-                if distance < 200 {
+                if distance < 30 {
                     self.mapView.view(for: annotation)?.isHidden = false
                     self.mapView.view(for: annotation)?.isEnabled = true
                 }
@@ -146,24 +157,14 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     // Check if all monsters are defeated
     func checkIfMonstersAreAlive() {
-        //var index = 0
-        var i = 0
-        if self.monsters.count == 0 {
-            self.entered = false
-            self.enterWorldButton.isHidden = false
-        }
         for m in self.monsters {
             if !m.isAlive() {
-                //index = i
                 for a in self.mapView.annotations {
                     if a.title! == m.name {
-                        self.mapView.view(for: a)?.isHidden = true
-                        self.deadMonsters += 1
+                        self.mapView.removeAnnotation(a)
                     }
                 }
             }
-            //self.monsters.remove(at: index)
-            i += 1
         }
     }
     
@@ -222,9 +223,11 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     func createHiddenMap() {
         print("Creating and placing annotations")
         monsters = []
-        let monster1 = MonsterHandler(name: "Slime", level: self.character.level)
-        let monster2 = MonsterHandler(name: "Giant Spider", level: self.character.level)
-        let monster3 = MonsterHandler(name: "Orc warrior", level: self.character.level)
+        let annotations = self.mapView.annotations
+        self.mapView.removeAnnotations(annotations)
+        let monster1 = MonsterHandler(name: "Farmer-Zombie", level: self.character.level)
+        let monster2 = MonsterHandler(name: "Army-Zombie", level: self.character.level)
+        let monster3 = MonsterHandler(name: "Executioner", level: self.character.level)
         monsters.append(monster1)
         monsters.append(monster2)
         monsters.append(monster3)
@@ -277,12 +280,31 @@ class RealMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     @IBAction func enterWorldButtonPressed(_ sender: Any) {
         createHiddenMap()
         self.entered = true
-        //self.enterWorldButton.isHidden = true
+        self.enterWorldButton.isHidden = true
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         saveCharacter()
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func debugShowMonsters(_ sender: Any) {
+        let annotations = self.mapView.annotations
+        if isDebugOn {
+            for a in annotations {
+                if a.title! != "My Location" {
+                    self.mapView.view(for: a)?.isHidden = true
+                }
+            }
+            isDebugOn = false
+        } else {
+            for a in annotations {
+                if a.title! != "My Location" {
+                    self.mapView.view(for: a)?.isHidden = false
+                }
+            }
+            isDebugOn = true
+        }
     }
     
 }

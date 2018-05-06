@@ -29,7 +29,7 @@ class CreateCharacterViewController: UIViewController {
         let char = CharacterHandler(name: name)
         let save = SavedCharacterModel()
         save.saveCharacter(char: char)
-        
+
         self.view.removeFromSuperview()
     }
     

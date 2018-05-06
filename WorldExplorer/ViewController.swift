@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParentViewController: self)
+//        popOverVC.didMove(toParentViewController: self)
     }
     
 }
